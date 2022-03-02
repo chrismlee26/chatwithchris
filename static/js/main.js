@@ -20,7 +20,7 @@ socket.on('roomUsers', ({ chatroom, users }) => {
 
 // Message from Server
 socket.on('message', message => {
-  console.log(message)
+  // console.log(message)
   outputMessage(message)
   chatMessages.scrollTop == chatMessages.scrollHeight // Scroll to newest
 })

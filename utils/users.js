@@ -13,12 +13,22 @@ function getCurrentUser(id) {
 }
 
 // Get room users
-function getRoomUsers(room) {
-  return users.filter(user => user.room === room);
+function getRoomUsers(chatroom) {
+  return users.filter(user => user.chatroom === chatroom);
+}
+
+// User leaves chat
+function userLeave(id) {
+  const index = users.findIndex(user => user.id === id);
+
+  if (index !== -1) {
+    return users.splice(index, 1)[0];
+  }
 }
 
 module.exports = {
   userJoin,
   getCurrentUser,
   getRoomUsers,
+  userLeave,
 }

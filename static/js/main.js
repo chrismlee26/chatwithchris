@@ -5,6 +5,7 @@ const socket = io();
 
 // Message from Server
 socket.on('message', message => {
+  console.log(message)
   outputMessage(message)
   chatMessages.scrollTop == chatMessages.scrollHeight // Scroll to newest
 })
@@ -23,8 +24,8 @@ function outputMessage(message) {
   const div = document.createElement('div')
   div.classList.add('message');
   div.innerHTML = `
-    <p class="meta">Username <span>TimeStamp</span></p>
-    <p class="text">${message}</p>
+    <p class="meta">${message.username} <span>${message.time}</span></p>
+    <p class="text">${message.text}</p>
   `;
   document.querySelector('.chat-messages').appendChild(div);
 }
